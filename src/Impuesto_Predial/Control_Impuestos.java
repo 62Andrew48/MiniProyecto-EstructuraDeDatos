@@ -5,7 +5,6 @@
 package Impuesto_Predial;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -20,6 +19,7 @@ public class Control_Impuestos {
     //Declaro el Arreglo para almacenar los Números de Matrícula
     int[] numerosMatricula;
 
+    //Se utiliza para leer la entrada del usuario desde la consola estándar (System.in)
     Scanner scan = new Scanner(System.in);
 
     int contadorViviendas = 0;
@@ -77,15 +77,15 @@ public class Control_Impuestos {
 
         boolean bandera = false;
         for (int i = 0; i < viviendas.size(); i++) {
-            Impuesto HousingEncontrada = (Impuesto) viviendas.get(i);
+            Impuesto ViviendaEncontrada = (Impuesto) viviendas.get(i);
 
             //Tomó el Número de Matrícula del Objeto y la comparo
-            if (HousingEncontrada.getMatricula() == matriculaBuscar) {
+            if (ViviendaEncontrada.getMatricula() == matriculaBuscar) {
                 System.out.println("\n****Datos de la Vivienda Encontrada****");
-                System.out.println("Dirección: " + HousingEncontrada.getDireccion());
-                System.out.println("Nombre del Propietario: " + HousingEncontrada.getNombre());
-                System.out.println("Apellido del Propietario: " + HousingEncontrada.getApellido());
-                System.out.println("Barrio: " + HousingEncontrada.getBarrio());
+                System.out.println("Dirección: " + ViviendaEncontrada.getDireccion());
+                System.out.println("Nombre del Propietario: " + ViviendaEncontrada.getNombre());
+                System.out.println("Apellido del Propietario: " + ViviendaEncontrada.getApellido());
+                System.out.println("Barrio: " + ViviendaEncontrada.getBarrio());
                 bandera = true;
             }
         }
@@ -103,15 +103,15 @@ public class Control_Impuestos {
 
         boolean bandera = false;
         for (int i = 0; i < viviendas.size(); i++) {
-            Impuesto HousingEncontrada = (Impuesto) viviendas.get(i);
+            Impuesto ViviendaEncontrada = (Impuesto) viviendas.get(i);
 
             //Tomó el Apellido del Objeto y la comparo
-            if (apellidoBuscar.equals(HousingEncontrada.getApellido())) {
+            if (apellidoBuscar.equals(ViviendaEncontrada.getApellido())) {
                 System.out.println("\n****Datos de la Vivienda Encontrada****");
-                System.out.println("Número de Matrícula Inmobiliaria: " + HousingEncontrada.getMatricula());
-                System.out.println("Dirección: " + HousingEncontrada.getDireccion());
-                System.out.println("Nombre del Propietario: " + HousingEncontrada.getNombre());
-                System.out.println("Barrio: " + HousingEncontrada.getBarrio());
+                System.out.println("Número de Matrícula Inmobiliaria: " + ViviendaEncontrada.getMatricula());
+                System.out.println("Dirección: " + ViviendaEncontrada.getDireccion());
+                System.out.println("Nombre del Propietario: " + ViviendaEncontrada.getNombre());
+                System.out.println("Barrio: " + ViviendaEncontrada.getBarrio());
                 bandera = true;
             }
         }
@@ -120,7 +120,7 @@ public class Control_Impuestos {
             System.out.println("La Vivienda no está registrada!!");
         }
     }
-    
+
     //Case 4: Método para Listar los Números de Matrícula
     void listarMatriculas() {
         System.out.println("Listado de los Números de Matrícula\n");
@@ -186,16 +186,16 @@ public class Control_Impuestos {
             System.out.println("Número de Matrícula no Encontrado!!");
         } else {
             for (int i = 0; i < viviendas.size(); i++) {
-                Impuesto HousingEncontrada = (Impuesto) viviendas.get(i);
+                Impuesto ViviendaEncontrada = (Impuesto) viviendas.get(i);
 
                 //Tomó el Número de Matrícula del Objeto y la comparo
-                if (HousingEncontrada.getMatricula() == numBuscado) {
+                if (ViviendaEncontrada.getMatricula() == numBuscado) {
                     System.out.println("Número de Matrícula Encontrado, en la Posición: " + datoRet);
                     System.out.println("\n****Datos de la Vivienda Encontrada****");
-                    System.out.println("Dirección: " + HousingEncontrada.getDireccion());
-                    System.out.println("Nombre del Propietario: " + HousingEncontrada.getNombre());
-                    System.out.println("Apellido del Propietario: " + HousingEncontrada.getApellido());
-                    System.out.println("Barrio: " + HousingEncontrada.getBarrio());
+                    System.out.println("Dirección: " + ViviendaEncontrada.getDireccion());
+                    System.out.println("Nombre del Propietario: " + ViviendaEncontrada.getNombre());
+                    System.out.println("Apellido del Propietario: " + ViviendaEncontrada.getApellido());
+                    System.out.println("Barrio: " + ViviendaEncontrada.getBarrio());
                 }
             }
         }
@@ -236,19 +236,9 @@ public class Control_Impuestos {
             System.out.println("5. Ordenar por Burbuja los Números de Matrícula");
             System.out.println("6. Ordenar por Inserción los Números de Matrícula");
             System.out.println("7. Buscar Vivienda por el Número de Matrícula - Búsqueda Binaria");
-            System.out.println("8. Salir del Programa");
-            
-            do {
-                try {
-
-                    System.out.println("Digite una opción: ");
-                    opc = scan.nextInt();
-
-                } catch (InputMismatchException e) { //Se utiliza para manejar errores de entrada cuando el usuario proporciona un tipo de dato incorrecto
-                    System.out.println("Error");
-                }
-                scan.nextLine();
-            } while (opc <= 0);
+            System.out.println("8. Salir del Programa\n");
+            System.out.print("Digite una opción: ");
+            opc = scan.nextInt();
 
             switch (opc) {
                 case 1:
