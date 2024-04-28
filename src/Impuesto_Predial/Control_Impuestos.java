@@ -23,7 +23,7 @@ public class Control_Impuestos {
 
     int contadorViviendas = 0;
 
-    //Método para Añadir los datos a la Lista
+    //Case 1: Método para Añadir los datos a la Lista
     void registrarVivienda() {
         contadorViviendas++;
         System.out.println("\n****VIVIENDA " + contadorViviendas + "****\n");
@@ -69,7 +69,7 @@ public class Control_Impuestos {
         }
     }
 
-    //Método para Listar los Números de Matrícula
+    //Case 2: Método para Listar los Números de Matrícula
     void listarMatriculas() {
         System.out.println("Listado de los Números de Matrícula\n");
         for (int i = 0; i < numerosMatricula.length; i++) {
@@ -78,7 +78,7 @@ public class Control_Impuestos {
         System.out.println();
     }
 
-    //Método para Buscar por el Número de Matrícula - Búsqueda Lineal
+    //Case 3: Método para Buscar por el Número de Matrícula - Búsqueda Lineal
     void buscarPorMatriculaLineal() {
         System.out.print("Digite el Número de Matrícula de la Vivienda para Buscarla: ");
         int matriculaBuscar = scan.nextInt();
@@ -103,7 +103,7 @@ public class Control_Impuestos {
         }
     }
 
-    //Método para Buscar por el Apellido - Búsqueda Lineal
+    //Case 4: Método para Buscar por el Apellido - Búsqueda Lineal
     void buscarPorApellido() {
         System.out.print("Digite el Apellido del Propietario para Buscar la Vivienda: ");
         scan.nextLine();
@@ -129,7 +129,7 @@ public class Control_Impuestos {
         }
     }
 
-    //Algoritmo de Ordenamiento por Burbuja
+    //Case 5: Algoritmo de Ordenamiento por Burbuja
     void ordenarporBurbuja(int arreglo[]) {
         int n = arreglo.length;
         int aux = 0;
@@ -147,7 +147,7 @@ public class Control_Impuestos {
         }
     }
 
-    //Algoritmo de Ordenamiento por Insercción
+    //Case 6: Algoritmo de Ordenamiento por Insercción
     public void ordenarPorInserccion(int datos[]) {
         int insercion; //Variable temporal para contener el elemento a insertar
 
@@ -173,7 +173,7 @@ public class Control_Impuestos {
         }
     }
 
-    //Método para Buscar la Vivienda por el Número de Matrícula - Búsqueda Binaria
+    //Case 7: Método para Buscar la Vivienda por el Número de Matrícula - Búsqueda Binaria
     void buscarporMatriculaBinaria() {
         System.out.print("Digite el Número de Matrícula a Buscar: ");
         int numBuscado = scan.nextInt();
@@ -224,7 +224,7 @@ public class Control_Impuestos {
     }
 
     //Menú de Opciones
-    void Menu() {
+    void menu() {
         int opc;
         do {
             System.out.println("\n****MENÚ DE OPCIONES****\n");
