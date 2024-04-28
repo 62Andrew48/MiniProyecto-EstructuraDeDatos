@@ -244,7 +244,7 @@ public class Control_Impuestos {
                     System.out.println("Digite una opción: ");
                     opc = scan.nextInt();
 
-                } catch (InputMismatchException e) {
+                } catch (InputMismatchException e) { //Se utiliza para manejar errores de entrada cuando el usuario proporciona un tipo de dato incorrecto
                     System.out.println("Error");
                 }
                 scan.nextLine();
