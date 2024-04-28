@@ -182,7 +182,7 @@ public class Control_Impuestos {
         int datoRet = this.busquedaBinaria(numBuscado);
 
         if (datoRet == -1) {
-            System.out.println("Numero de Matrícula no Encontrado!!");
+            System.out.println("Número de Matrícula no Encontrado!!");
         } else {
             for (int i = 0; i < viviendas.size(); i++) {
                 Impuesto HousingEncontrada = (Impuesto) viviendas.get(i);
