@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class Control_Impuestos {
 
-    //Declaro la Lista para almacenar las Viviendas
+    //Declaro el ArrayList para almacenar las Viviendas
     ArrayList viviendas = new ArrayList();
 
     //Declaro el Arreglo para almacenar los Números de Matrícula
@@ -187,7 +187,7 @@ public class Control_Impuestos {
             for (int i = 0; i < viviendas.size(); i++) {
                 Impuesto HousingEncontrada = (Impuesto) viviendas.get(i);
 
-                //Tomó el Barrio del Objeto y la comparo
+                //Tomó el Número de Matrícula del Objeto y la comparo
                 if (HousingEncontrada.getMatricula() == numBuscado) {
                     System.out.println("Número de Matrícula Encontrado, en la Posición: " + datoRet);
                     System.out.println("\n****Datos de la Vivienda Encontrada****");
