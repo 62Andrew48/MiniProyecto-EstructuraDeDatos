@@ -13,10 +13,10 @@ import java.util.Scanner;
  */
 public class Control_Impuestos {
 
-    //Declaro el ArrayList
+    //Declaro la Lista para almacenar las Viviendas
     ArrayList viviendas = new ArrayList();
 
-    //Declaro el Arreglo
+    //Declaro el Arreglo para almacenar los Números de Matrícula
     int[] numerosMatricula;
 
     Scanner scan = new Scanner(System.in);
@@ -41,10 +41,10 @@ public class Control_Impuestos {
         System.out.print("Digite el Barrio: ");
         String barrio = scan.nextLine();
 
-        //Crear un objeto de tipo Impuesto
+        //Crear un Objeto de tipo Impuesto
         Impuesto tax = new Impuesto();
 
-        //Se le setea la información al Objeto
+        //Se le setea la información al Objeto Impuesto
         tax.setMatricula(matricula);
         tax.setDireccion(direccion);
         tax.setNombre(nombre);
@@ -69,16 +69,7 @@ public class Control_Impuestos {
         }
     }
 
-    //Case 2: Método para Listar los Números de Matrícula
-    void listarMatriculas() {
-        System.out.println("Listado de los Números de Matrícula\n");
-        for (int i = 0; i < numerosMatricula.length; i++) {
-            System.out.print(numerosMatricula[i] + " / ");
-        }
-        System.out.println();
-    }
-
-    //Case 3: Método para Buscar por el Número de Matrícula - Búsqueda Lineal
+    //Case 2: Método para Buscar por el Número de Matrícula - Búsqueda Lineal
     void buscarPorMatriculaLineal() {
         System.out.print("Digite el Número de Matrícula de la Vivienda para Buscarla: ");
         int matriculaBuscar = scan.nextInt();
@@ -103,7 +94,7 @@ public class Control_Impuestos {
         }
     }
 
-    //Case 4: Método para Buscar por el Apellido - Búsqueda Lineal
+    //Case 3: Método para Buscar por el Apellido - Búsqueda Lineal
     void buscarPorApellido() {
         System.out.print("Digite el Apellido del Propietario para Buscar la Vivienda: ");
         scan.nextLine();
@@ -128,6 +119,15 @@ public class Control_Impuestos {
             System.out.println("La Vivienda no está registrada!!");
         }
     }
+    
+    //Case 4: Método para Listar los Números de Matrícula
+    void listarMatriculas() {
+        System.out.println("Listado de los Números de Matrícula\n");
+        for (int i = 0; i < numerosMatricula.length; i++) {
+            System.out.print(numerosMatricula[i] + " / ");
+        }
+        System.out.println();
+    }
 
     //Case 5: Algoritmo de Ordenamiento por Burbuja
     void ordenarporBurbuja(int arreglo[]) {
@@ -147,8 +147,8 @@ public class Control_Impuestos {
         }
     }
 
-    //Case 6: Algoritmo de Ordenamiento por Insercción
-    public void ordenarPorInserccion(int datos[]) {
+    //Case 6: Algoritmo de Ordenamiento por Inserción
+    public void ordenarPorInsercion(int datos[]) {
         int insercion; //Variable temporal para contener el elemento a insertar
 
         //Itera a través de datos.length - 1 elementos
@@ -229,9 +229,9 @@ public class Control_Impuestos {
         do {
             System.out.println("\n****MENÚ DE OPCIONES****\n");
             System.out.println("1. Registrar los Datos de la Vivienda");
-            System.out.println("2. Listar los Números de Matrícula");
-            System.out.println("3. Buscar Vivienda por el Número de Matrícula - Búsqueda Lineal");
-            System.out.println("4. Buscar Vivienda por el Apellido del Propietario");
+            System.out.println("2. Buscar Vivienda por el Número de Matrícula - Búsqueda Lineal");
+            System.out.println("3. Buscar Vivienda por el Apellido del Propietario");
+            System.out.println("4. Listar los Números de Matrícula de las Viviendas");
             System.out.println("5. Ordenar por Burbuja los Números de Matrícula");
             System.out.println("6. Ordenar por Inserción los Números de Matrícula");
             System.out.println("7. Buscar Vivienda por el Número de Matrícula - Búsqueda Binaria");
@@ -244,13 +244,13 @@ public class Control_Impuestos {
                     this.registrarVivienda();
                     break;
                 case 2:
-                    this.listarMatriculas();
-                    break;
-                case 3:
                     this.buscarPorMatriculaLineal();
                     break;
-                case 4:
+                case 3:
                     this.buscarPorApellido();
+                    break;
+                case 4:
+                    this.listarMatriculas();
                     break;
                 case 5:
                     this.ordenarporBurbuja(numerosMatricula);
@@ -258,7 +258,7 @@ public class Control_Impuestos {
                     System.out.println("Números de Matrícula ordenados por Método de Burbuja");
                     break;
                 case 6:
-                    this.ordenarPorInserccion(numerosMatricula);
+                    this.ordenarPorInsercion(numerosMatricula);
                     System.out.println();
                     System.out.println("Números de Matrícula ordenados por Método de Inserción");
                     break;
