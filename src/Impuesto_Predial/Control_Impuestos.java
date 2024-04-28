@@ -5,6 +5,7 @@
 package Impuesto_Predial;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -225,7 +226,7 @@ public class Control_Impuestos {
 
     //Menú de Opciones
     void menu() {
-        int opc;
+        int opc = 0;
         do {
             System.out.println("\n****MENÚ DE OPCIONES****\n");
             System.out.println("1. Registrar los Datos de la Vivienda");
@@ -236,8 +237,18 @@ public class Control_Impuestos {
             System.out.println("6. Ordenar por Inserción los Números de Matrícula");
             System.out.println("7. Buscar Vivienda por el Número de Matrícula - Búsqueda Binaria");
             System.out.println("8. Salir del Programa");
-            System.out.print("\nDigite una opción: ");
-            opc = scan.nextInt();
+            
+            do {
+                try {
+
+                    System.out.println("Digite una opción: ");
+                    opc = scan.nextInt();
+
+                } catch (InputMismatchException e) {
+                    System.out.println("Error");
+                }
+                scan.nextLine();
+            } while (opc <= 0);
 
             switch (opc) {
                 case 1:
