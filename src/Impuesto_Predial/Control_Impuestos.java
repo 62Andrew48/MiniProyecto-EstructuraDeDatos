@@ -125,8 +125,10 @@ public class Control_Impuestos {
             if (apellidoBuscar.equals(ViviendaEncontrada.getApellido().toLowerCase())) {
                 contadorViviendasApellido++;
                 System.out.println("\n****Datos de la Vivienda " + contadorViviendasApellido + " Encontrada****");
-                System.out.println(ViviendaEncontrada.getMatricula() + " / " + ViviendaEncontrada.getDireccion()
-                        + " / " + ViviendaEncontrada.getNombre() + " / " + ViviendaEncontrada.getBarrio());
+                System.out.println(ViviendaEncontrada.getMatricula() + " / "
+                        + ViviendaEncontrada.getDireccion() + " / "
+                        + ViviendaEncontrada.getNombre() + " / "
+                        + ViviendaEncontrada.getBarrio());
                 bandera = true;
             }
         }
