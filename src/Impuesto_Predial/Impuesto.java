@@ -11,18 +11,18 @@ package Impuesto_Predial;
 public class Impuesto {
 
     //Declarar Atributos
-    private int Matricula;
+    private long Matricula;
     private String Direccion;
     private String Nombre;
     private String Apellido;
     private String Barrio;
 
     //Getters & Setters
-    public int getMatricula() {
+    public long getMatricula() {
         return Matricula;
     }
 
-    public void setMatricula(int matricula) {
+    public void setMatricula(long matricula) {
         Matricula = matricula;
     }
 

@@ -17,7 +17,7 @@ public class Control_Impuestos {
     ArrayList viviendas = new ArrayList();
 
     //Declaro el Arreglo para almacenar los Números de Matrícula
-    int[] numerosMatricula;
+    long[] numerosMatricula;
 
     //Se utiliza para leer la entrada del usuario desde la consola estándar (System.in)
     Scanner scan = new Scanner(System.in);
@@ -31,7 +31,7 @@ public class Control_Impuestos {
 
         //Pedir los Datos de la Vivienda
         System.out.print("Digite el Número de Matrícula Inmobiliaria: ");
-        int matricula = scan.nextInt();
+        long matricula = scan.nextLong();
         scan.nextLine();
         System.out.print("Digite la Dirección: ");
         String direccion = scan.nextLine();
@@ -63,7 +63,7 @@ public class Control_Impuestos {
 
     //Método para actualizar el Arreglo de los Números de Matrícula
     void actualizarArregloMatriculas() {
-        numerosMatricula = new int[viviendas.size()];
+        numerosMatricula = new long[viviendas.size()];
         for (int i = 0; i < viviendas.size(); i++) {
             Impuesto arregloMatriculas = (Impuesto) viviendas.get(i);
             numerosMatricula[i] = arregloMatriculas.getMatricula();
@@ -73,7 +73,7 @@ public class Control_Impuestos {
     //Case 2: Método para Buscar por el Número de Matrícula - Búsqueda Lineal
     void buscarPorMatriculaLineal() {
         System.out.print("Digite el Número de Matrícula de la Vivienda para Buscarla: ");
-        int matriculaBuscar = scan.nextInt();
+        long matriculaBuscar = scan.nextInt();
 
         boolean bandera = false;
         for (int i = 0; i < viviendas.size(); i++) {
@@ -131,9 +131,9 @@ public class Control_Impuestos {
     }
 
     //Case 5: Algoritmo de Ordenamiento por Burbuja
-    void ordenarporBurbuja(int arreglo[]) {
-        int n = arreglo.length;
-        int aux = 0;
+    void ordenarporBurbuja(long arreglo[]) {
+        long n = arreglo.length;
+        long aux = 0;
 
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
@@ -149,8 +149,8 @@ public class Control_Impuestos {
     }
 
     //Case 6: Algoritmo de Ordenamiento por Inserción
-    public void ordenarPorInsercion(int datos[]) {
-        int insercion; //Variable temporal para contener el elemento a insertar
+    public void ordenarPorInsercion(long datos[]) {
+        long insercion; //Variable temporal para contener el elemento a insertar
 
         //Itera a través de datos.length - 1 elementos
         for (int siguiente = 1; siguiente < datos.length; siguiente++) {
@@ -177,10 +177,10 @@ public class Control_Impuestos {
     //Case 7: Método para Buscar la Vivienda por el Número de Matrícula - Búsqueda Binaria
     void buscarporMatriculaBinaria() {
         System.out.print("Digite el Número de Matrícula a Buscar: ");
-        int numBuscado = scan.nextInt();
+        long numBuscado = scan.nextInt();
 
         //Llamó al Método del algortimo de Búsqueda Binaria
-        int datoRet = this.busquedaBinaria(numBuscado);
+        long datoRet = this.busquedaBinaria(numBuscado);
 
         if (datoRet == -1) {
             System.out.println("Número de Matrícula no Encontrado!!");
@@ -202,7 +202,7 @@ public class Control_Impuestos {
     }
 
     //Algortimo de Búsqueda Binaria
-    public int busquedaBinaria(int elementoBusqueda) {
+    public int busquedaBinaria(long elementoBusqueda) {
         int inferior = 0; //Extremo inferior del área de búsqueda
         int superior = numerosMatricula.length - 1; //Extremo superior del área de búsqueda
         int medio = (inferior + superior + 1) / 2; //Elemento medio
