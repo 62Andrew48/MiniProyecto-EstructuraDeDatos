@@ -43,17 +43,17 @@ public class Control_Impuestos {
         String barrio = scan.nextLine();
 
         //Crear un Objeto de tipo Impuesto
-        Impuesto tax = new Impuesto();
+        Impuesto impuesto = new Impuesto();
 
         //Se le setea la información al Objeto Impuesto
-        tax.setMatricula(matricula);
-        tax.setDireccion(direccion);
-        tax.setNombre(nombre);
-        tax.setApellido(apellido);
-        tax.setBarrio(barrio);
+        impuesto.setMatricula(matricula);
+        impuesto.setDireccion(direccion);
+        impuesto.setNombre(nombre);
+        impuesto.setApellido(apellido);
+        impuesto.setBarrio(barrio);
 
         //Agregar el Objeto a la Lista
-        viviendas.add(tax);
+        viviendas.add(impuesto);
 
         //Actualizar el Arreglo de Números de Matrícula
         actualizarArregloMatriculas(); //Llamar al Método para actualizar los Números de Matrícula
@@ -68,7 +68,7 @@ public class Control_Impuestos {
             Impuesto arregloMatriculas = (Impuesto) viviendas.get(i);
             numerosMatricula[i] = arregloMatriculas.getMatricula();
         }
-    }
+    }//Relacionado con el Case 4: Listar Números de Matrícula
 
     //Case 2: Método para Buscar por el Número de Matrícula - Búsqueda Lineal
     void buscarPorMatriculaLineal() {
