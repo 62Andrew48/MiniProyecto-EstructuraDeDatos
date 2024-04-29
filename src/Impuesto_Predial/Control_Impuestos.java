@@ -72,8 +72,21 @@ public class Control_Impuestos {
 
     //Case 2: Método para Buscar por el Número de Matrícula - Búsqueda Lineal
     void buscarPorMatriculaLineal() {
-        System.out.print("Digite el Número de Matrícula de la Vivienda para Buscarla: ");
-        long matriculaBuscar = scan.nextLong();
+        int contadorViviendasLineal = 0;
+
+        long matriculaBuscar;
+
+        //Bucle do-while para garantizar que se ingrese un número válido
+        do {
+            System.out.print("Digite el Número de Matrícula de la Vivienda para Buscarla: ");
+            //Verificar si la entrada es un número
+            while (!scan.hasNextLong()) { //Mirar si se registra, si es tipo númerico
+                System.out.println("Por favor, ingrese solo números");
+                System.out.print("Digite nuevamente el Número de Matrícula de la Vivienda para Buscarla: ");
+                scan.next(); // Consumir la entrada no válida
+            }
+            matriculaBuscar = scan.nextLong();
+        } while (matriculaBuscar <= 0); //Validar si el número ingresado es positivo
 
         boolean bandera = false;
         for (int i = 0; i < viviendas.size(); i++) {
@@ -81,11 +94,12 @@ public class Control_Impuestos {
 
             //Tomó el Número de Matrícula del Objeto y la comparo
             if (ViviendaEncontrada.getMatricula() == matriculaBuscar) {
-                System.out.println("\n****Datos de la Vivienda Encontrada****");
-                System.out.println("Dirección: " + ViviendaEncontrada.getDireccion());
-                System.out.println("Nombre del Propietario: " + ViviendaEncontrada.getNombre());
-                System.out.println("Apellido del Propietario: " + ViviendaEncontrada.getApellido());
-                System.out.println("Barrio: " + ViviendaEncontrada.getBarrio());
+                contadorViviendasLineal++;
+                System.out.println("\n****Datos de la Vivienda " + contadorViviendasLineal + " Encontrada****");
+                System.out.println(ViviendaEncontrada.getDireccion() + " / "
+                        + ViviendaEncontrada.getNombre() + " / "
+                        + ViviendaEncontrada.getApellido() + " / "
+                        + ViviendaEncontrada.getBarrio());
                 bandera = true;
             }
         }
@@ -97,21 +111,22 @@ public class Control_Impuestos {
 
     //Case 3: Método para Buscar por el Apellido - Búsqueda Lineal
     void buscarPorApellido() {
+        int contadorViviendasApellido = 0;
+
         System.out.print("Digite el Apellido del Propietario para Buscar la Vivienda: ");
         scan.nextLine();
-        String apellidoBuscar = scan.nextLine();
+        String apellidoBuscar = scan.nextLine().toLowerCase(); //.toLoweCase, hace la función de convertir en minúsculas una cadena de texto
 
         boolean bandera = false;
         for (int i = 0; i < viviendas.size(); i++) {
             Impuesto ViviendaEncontrada = (Impuesto) viviendas.get(i);
 
             //Tomó el Apellido del Objeto y la comparo
-            if (apellidoBuscar.equals(ViviendaEncontrada.getApellido())) {
-                System.out.println("\n****Datos de la Vivienda Encontrada****");
-                System.out.println("Número de Matrícula Inmobiliaria: " + ViviendaEncontrada.getMatricula());
-                System.out.println("Dirección: " + ViviendaEncontrada.getDireccion());
-                System.out.println("Nombre del Propietario: " + ViviendaEncontrada.getNombre());
-                System.out.println("Barrio: " + ViviendaEncontrada.getBarrio());
+            if (apellidoBuscar.equals(ViviendaEncontrada.getApellido().toLowerCase())) {
+                contadorViviendasApellido++;
+                System.out.println("\n****Datos de la Vivienda " + contadorViviendasApellido + " Encontrada****");
+                System.out.println(ViviendaEncontrada.getMatricula() + " / " + ViviendaEncontrada.getDireccion()
+                        + " / " + ViviendaEncontrada.getNombre() + " / " + ViviendaEncontrada.getBarrio());
                 bandera = true;
             }
         }
@@ -123,7 +138,7 @@ public class Control_Impuestos {
 
     //Case 4: Método para Listar los Números de Matrícula
     void listarMatriculas() {
-        System.out.println("Listado de los Números de Matrícula\n");
+        System.out.println("\nListado de los Números de Matrícula\n");
         for (int i = 0; i < numerosMatricula.length; i++) {
             System.out.print(numerosMatricula[i] + " / ");
         }
@@ -176,6 +191,8 @@ public class Control_Impuestos {
 
     //Case 7: Método para Buscar la Vivienda por el Número de Matrícula - Búsqueda Binaria
     void buscarporMatriculaBinaria() {
+        int contadorViviendasBinaria = 0;
+
         System.out.print("Digite el Número de Matrícula a Buscar: ");
         long numBuscado = scan.nextLong();
 
@@ -190,12 +207,13 @@ public class Control_Impuestos {
 
                 //Tomó el Número de Matrícula del Objeto y la comparo
                 if (ViviendaEncontrada.getMatricula() == numBuscado) {
-                    System.out.println("Número de Matrícula Encontrado, en la Posición: " + datoRet);
-                    System.out.println("\n****Datos de la Vivienda Encontrada****");
-                    System.out.println("Dirección: " + ViviendaEncontrada.getDireccion());
-                    System.out.println("Nombre del Propietario: " + ViviendaEncontrada.getNombre());
-                    System.out.println("Apellido del Propietario: " + ViviendaEncontrada.getApellido());
-                    System.out.println("Barrio: " + ViviendaEncontrada.getBarrio());
+                    contadorViviendasBinaria++;
+                    System.out.println("\n****Datos de la Vivienda " + contadorViviendasBinaria + " Encontrada****");
+                    System.out.println("Matrícula: " + ViviendaEncontrada.getMatricula() + " Encontrada, en la posición: " + datoRet);
+                    System.out.println(ViviendaEncontrada.getDireccion() + " / "
+                            + ViviendaEncontrada.getNombre() + " / "
+                            + ViviendaEncontrada.getApellido() + " / "
+                            + ViviendaEncontrada.getBarrio());
                 }
             }
         }
