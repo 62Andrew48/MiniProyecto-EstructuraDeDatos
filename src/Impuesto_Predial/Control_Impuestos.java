@@ -73,7 +73,7 @@ public class Control_Impuestos {
     //Case 2: Método para Buscar por el Número de Matrícula - Búsqueda Lineal
     void buscarPorMatriculaLineal() {
         System.out.print("Digite el Número de Matrícula de la Vivienda para Buscarla: ");
-        long matriculaBuscar = scan.nextInt();
+        long matriculaBuscar = scan.nextLong();
 
         boolean bandera = false;
         for (int i = 0; i < viviendas.size(); i++) {
@@ -177,7 +177,7 @@ public class Control_Impuestos {
     //Case 7: Método para Buscar la Vivienda por el Número de Matrícula - Búsqueda Binaria
     void buscarporMatriculaBinaria() {
         System.out.print("Digite el Número de Matrícula a Buscar: ");
-        long numBuscado = scan.nextInt();
+        long numBuscado = scan.nextLong();
 
         //Llamó al Método del algortimo de Búsqueda Binaria
         long datoRet = this.busquedaBinaria(numBuscado);
